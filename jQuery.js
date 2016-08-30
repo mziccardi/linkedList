@@ -1,5 +1,5 @@
-var inputText = $('.inputText');
-var inputURL = $('.inputURL');
+// var inputText = $('.inputText').val();
+// var inputURL = $('.inputURL').val();
 var submitButton = $('.submitButton');
 var table = $('.table');
 var title = $('.title');
@@ -7,10 +7,8 @@ var url = $('.url');
 
 
 submitButton.on('click', function(){
-  $('.table').after('<tr>'+inputText+'</tr><tr>'+inputURL+'</tr>');
-  // $('.title').append(inputText.val()+ '');  $('.title').append(inputURL.val());
-  //
-  //
-  // $('.title').append('</br>');
+  var inputText = $('.inputText').val();
+  var inputURL = $('.inputURL').val();
+  $('.table tr:last').after('<tr><td>'+inputText+'</td><td>'+inputURL+'</td><td class="checkbox"><input type="checkbox"></td><td><button class="remove">Remove</button></td></tr>');
 
 });
