@@ -3,6 +3,9 @@ var inputURL = $('.inputURL');
 var submitButton = $('.submitButton');
 
 submitButton.on('click', function(){
-  $('.bookmarks').prepend(inputText.val());
-  $('.bookmarks').prepend('</br>');
+  $('.title').append(inputText.val()+ '');  $('.title').append(inputURL.val());
+
+
+  $('.title').append('</br>');
+
 });
