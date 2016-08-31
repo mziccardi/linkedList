@@ -8,20 +8,34 @@
   </head>
   <body>
     <section class="container">
-      <span class="feedbackTitle"></span>
-      <span class="feedbackURL"></span>
+
+
       <section class="inputCont">
-        <h1 class="mike">Bookmark Keeper</h1>
-        <input class="inputText" type="text" name="title" placeholder="Title" required>
+        <h1>Bookmark Keeper</h1>
+  <input class="inputText" type="text" name="title" placeholder="Title" required>
+  <span class="feedbackTitle"></span>
         <input class="inputURL" type="text" name="url" placeholder="URL" required>
+        <span class="feedbackURL"></span>
         <button class="submitButton" type="button" disabled>Submit</button>
       </section>
+<section>
+  <section class="numberOfLinks">
+    Total Number of Links <span class="totalLinks"></span>
+  </section>
+  <section>
+    Read <span class ="linksRead"></span>
+  </section>
+  <section>
+    Unread <span class ="linksUnread"></span>
+  </section>
+</section>
+
       <section>
         <table class="table">
           <tr>
             <th class="title">Title</th>
             <th class="url">URL</th>
-            <th class="read">Read</th>
+            <th>Read</th>
             <th class="Delete">Delete</th>
           </tr>
           <tr class="bookmarkRow">

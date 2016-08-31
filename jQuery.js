@@ -4,6 +4,8 @@ var submitButton = $('.submitButton');
 var table = $('.table');
 var title = $('.title');
 var url = $('.url');
+var rowclass = $('.rowClass').size();
+
 
 $('.inputText').on('keyup', function(){
   buttonCheck();
@@ -17,6 +19,8 @@ function emptyInput() {
   $('.inputText').val('');
   $('.inputURL').val('');
 }
+
+
 
 submitButton.on('click', function(){
   var inputText = $('.inputText').val();
@@ -32,8 +36,8 @@ submitButton.on('click', function(){
         <tr class ="rowClass">
           <td>${inputText}</td>
           <td><a href="${inputURL}" target="_blank">Link</a></td>
-          <td class="checkbox">
-            <input type="checkbox">
+          <td>
+            <input class="checkbox" type="checkbox">
             </td>
           <td>
             <button class="remove">Remove</button>
@@ -44,6 +48,8 @@ submitButton.on('click', function(){
       }
     emptyInput();
     buttonCheck();
+    $('.totalLinks').html($('.rowClass').size());
+    $('.linksRead').text($('.read').size());
 });
 
 function emptyField() {
@@ -55,21 +61,6 @@ function emptyField() {
 }
 }
 
-
-
-// function clearFields() {
-//   $('.inputText').val() === '';
-//   $('.inputURL').val() === '';
-// }
-
-// function buttonCheck(){
-//   if (!$('.inputText').val() || !$('.inputURL').val() ) {
-//     $('.submitButton').attr("disabled", true);
-//   }
-//   else {
-//     $('.submitButton').attr("disabled", false);
-//   }
-// }
 
 function buttonCheck(){
   input = $('.inputText').val();
@@ -83,10 +74,19 @@ function clearFeedback() {
   $('.feedbackURL').text('');
 }
 
+
+
+
+
 $('.table').on('click', '.checkbox', function(){
     $(this).toggleClass('read');
+    $('.linksRead').text($('.read').size());
   });
 
 $('.table').on('click', '.remove', function(){
     $(this).parents('.rowClass').remove();
+    $('.totalLinks').text($('.rowClass').size());
+    $('.linksRead').text($('.read').size());
+
+    // $('.linksUnread').text(($('.rowClass').size() - ($('.linksRead').size())));
   });
