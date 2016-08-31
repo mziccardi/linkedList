@@ -11,7 +11,11 @@ submitButton.on('click', function(){
   var inputURL = $('.inputURL').val();
   clearFeedback();
   emptyField();
-  if (inputURL.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)) {
+  if (inputURL === '' || inputText === '') {
+    alert('Please complete both fields.');
+    return;
+  }
+  else if (inputURL.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)) {
     $('.table tr:last').after(`
         <tr class ="rowClass">
           <td>${inputText}</td>
@@ -23,7 +27,6 @@ submitButton.on('click', function(){
             <button class="remove">Remove</button>
           </td>
         </tr>`);
-    // disabled (submitButton, false);
       } else {
         $('.feedbackURL').html('</br>*Invalid URL');
       }
@@ -31,11 +34,18 @@ submitButton.on('click', function(){
 
 function emptyField() {
   var feedback = $('.feedback');
-  if($('.inputText').val() === ''){  $('.feedbackTitle').html('*Please insert a Title')
-};
-  if($('.inputURL').val() ===''){
-  $('.feedbackURL').html('</br>*Please insert a valid URL')};
+  if($('.inputText').val() === ''){ $('.feedbackTitle').html('*Please insert a Title');
 }
+ if ($('.inputURL').val() ==='') {
+  $('.feedbackURL').html('</br>*Please insert a valid URL');
+}
+}
+function clearFields() {
+  $('.inputText').val() === '';
+  $('.inputURL').val() === '';
+}
+
+
 
 function clearFeedback() {
   $('.feedbackTitle').text('');
@@ -49,7 +59,3 @@ $('.table').on('click', '.checkbox', function(){
 $('.table').on('click', '.remove', function(){
     $(this).parents('.rowClass').remove();
   });
-
-function disabled(a, b) {
-    a.disabled = b;
-  }
