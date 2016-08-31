@@ -5,6 +5,18 @@ var table = $('.table');
 var title = $('.title');
 var url = $('.url');
 
+$('.inputText').on('keyup', function(){
+  buttonCheck();
+});
+
+$('.inputURL').on('keyup', function() {
+  buttonCheck();
+});
+
+function emptyInput() {
+  $('.inputText').val('');
+  $('.inputURL').val('');
+}
 
 submitButton.on('click', function(){
   var inputText = $('.inputText').val();
@@ -30,6 +42,8 @@ submitButton.on('click', function(){
       } else {
         $('.feedbackURL').html('</br>*Invalid URL');
       }
+    emptyInput();
+    buttonCheck();
 });
 
 function emptyField() {
@@ -40,12 +54,29 @@ function emptyField() {
   $('.feedbackURL').html('</br>*Please insert a valid URL');
 }
 }
-function clearFields() {
-  $('.inputText').val() === '';
-  $('.inputURL').val() === '';
+
+
+
+// function clearFields() {
+//   $('.inputText').val() === '';
+//   $('.inputURL').val() === '';
+// }
+
+// function buttonCheck(){
+//   if (!$('.inputText').val() || !$('.inputURL').val() ) {
+//     $('.submitButton').attr("disabled", true);
+//   }
+//   else {
+//     $('.submitButton').attr("disabled", false);
+//   }
+// }
+
+function buttonCheck(){
+  input = $('.inputText').val();
+  url = $('.inputURL').val();
+  var isThereStuffInBothFields = input && url;
+  $('.submitButton').attr('disabled', !isThereStuffInBothFields);
 }
-
-
 
 function clearFeedback() {
   $('.feedbackTitle').text('');
