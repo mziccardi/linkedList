@@ -45,6 +45,7 @@ submitButton.on('click', function(){
         </tr>`);
       } else {
         $('.feedbackURL').html('</br>*Invalid URL');
+        return;
       }
     emptyInput();
     buttonCheck();
@@ -74,10 +75,6 @@ function clearFeedback() {
   $('.feedbackTitle').text('');
   $('.feedbackURL').text('');
 }
-
-
-
-
 
 $('.table').on('click', '.checkbox', function(){
     $(this).toggleClass('read');

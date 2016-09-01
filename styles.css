@@ -1,5 +1,49 @@
+body {
+  display: flex;
+  justify-content: center;
+
+}
+
 .container {
-  width: 50vh;
-  height: 100vh;
-  background-color: green;
+  width: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputCont{
+  text-align: center;
+}
+
+.inputCont h1{
+  font-size: 82px;
+  flex-direction: column;
+}
+
+.userContainer {
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.feedbackContainer {
+  height: 30px;
+  padding-bottom: 20px;
+  margin: 5px 0;
+  flex-direction: column;
+  color: red;
+}
+
+.counterCont {
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tableCont {
+  margin: auto;
+}
+
+.table th {
+  padding: 10px;
+  text-align: center;
 }
