@@ -1,8 +1,6 @@
+//global vars for buttons
 var submitButton = $('.submitButton');
-var table = $('.table');
-var title = $('.title');
-var url = $('.url');
-var rowclass = $('.rowClass').size();
+var clearReadButton = $('.clearRead');
 
 
 //functions called on event
@@ -113,4 +111,12 @@ $('.table').on('click', '.remove', function(){
     totalLinks();
     linksRead();
     linksUnread();
+});
+
+//clears all read links
+clearReadButton.on('click', function(){
+  $('.read').parents('tr').remove();
+  totalLinks();
+  linksRead();
+  linksUnread();
 });
