@@ -48,8 +48,9 @@ submitButton.on('click', function(){
       }
     emptyInput();
     buttonCheck();
-    $('.totalLinks').html($('.rowClass').size());
-    $('.linksRead').text($('.read').size());
+    totalLinks();
+    linksRead();
+    linksUnread();
 });
 
 function emptyField() {
@@ -80,13 +81,26 @@ function clearFeedback() {
 
 $('.table').on('click', '.checkbox', function(){
     $(this).toggleClass('read');
-    $('.linksRead').text($('.read').size());
+    linksRead();
+    linksUnread();
   });
 
 $('.table').on('click', '.remove', function(){
     $(this).parents('.rowClass').remove();
-    $('.totalLinks').text($('.rowClass').size());
-    $('.linksRead').text($('.read').size());
-
-    // $('.linksUnread').text(($('.rowClass').size() - ($('.linksRead').size())));
+    totalLinks();
+    linksRead();
+    linksUnread();
   });
+
+  function totalLinks() {
+      $('.totalLinks').text($('.rowClass').size());
+  }
+
+  function linksRead() {
+    $('.linksRead').text($('.read').size());
+  }
+
+  function linksUnread(){
+    var linksUnread = $('.rowClass').size() - $('.read').size();
+    $('.linksUnread').text(linksUnread);
+}
