@@ -2,7 +2,6 @@
 var submitButton = $('.submitButton');
 var clearReadButton = $('.clearRead');
 
-
 //functions called on event
 
 //disables submit if title field is empty
@@ -47,9 +46,6 @@ submitButton.on('click', function(){
     linksRead();
     linksUnread();
 });
-
-
-
 
 //functions
 
